@@ -1,0 +1,16 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u irrelevant-user --password-stdin
+          docker build -t ghcr.io/mybuilder/nginx-proxy:latest .
+          docker push ghcr.io/mybuilder/nginx-proxy:latest
