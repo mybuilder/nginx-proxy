@@ -10,5 +10,5 @@ docker run --rm -it \
   -e PROXY_HOST=www.google.com \
   -e PROXY_URL=https://www.google.com \
   -e TIMEOUT=29 \
-    mybuilder/nginx-proxy
+    ghcr.io/mybuilder/nginx-proxy
 ```
